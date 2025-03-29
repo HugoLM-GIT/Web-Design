@@ -1,2 +1,2 @@
-# Restaurant-Menu
-These are my steps on how I created a restaurant menu from the documentation onwards.
+# Restaurant-Menu website
+This is my website to a restaurant menu
