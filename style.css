@@ -1,14 +1,19 @@
+/* General styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background-color: #948989;
 }
 
+/* Header */
 header {
   background-color: #db0f00;
   color: white;
   text-align: center;
   padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header nav ul {
@@ -25,6 +30,16 @@ header nav ul li a {
   font-weight: bold;
 }
 
+/* Cart Icon */
+#cart-icon {
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+/* Main Content */
 main {
   padding: 2rem;
 }
@@ -35,17 +50,17 @@ section {
 
 /* Flexbox for aligning image and text */
 .dish {
-  display: flex; /* Enables side-by-side layout for image and text */
-  align-items: center; /* Aligns text vertically with the image */
-  gap: 1rem; /* Adds space between image and text */
-  margin-bottom: 1.5rem; /* Adds spacing between dishes */
+  display: flex; /* Side-by-side layout */
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Image styling */
 .dish img {
-  width: 150px; /* Sets a standard image width */
-  height: auto; /* Ensures proportional scaling */
-  border-radius: 5px; /* Optional: Adds rounded corners for images */
+  width: 150px;
+  height: auto;
+  border-radius: 5px;
 }
 
 /* Text styling */
@@ -55,39 +70,52 @@ section {
   color: #333;
 }
 
-/* Footer styling */
-footer {
-  background-color: #0a0a0a;
-  color: white;
+/* Cart Pop-up */
+#cart-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  display: none;
   text-align: center;
-  padding: 1rem;
-}
-#cart-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #db0f00;
-  color: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
 }
 
-#cart-button {
+.hidden {
+  display: none;
+}
+
+/* Cart buttons */
+#cart-popup button {
   padding: 0.5rem 1rem;
-  background-color: white;
-  color: #db0f00;
+  background-color: #db0f00;
+  color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
 }
 
-#cart-button:hover {
+#cart-popup button:hover {
   background-color: #0dfc05;
   color: black;
 }
 
-#cart-total {
-  font-size: 1.2rem;
-  font-weight: bold;
+/* Footer */
+footer {
+  background-color: #0a0a0a;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* QR Code Styling */
+#qr-code {
+  display: block;
+  margin: 10px auto;
+  width: 150px;
+  height: 150px;
 }
