@@ -2,7 +2,7 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  background-color: #948989;
+  background-color: #faf7f7;
 }
 
 /* Header */
@@ -102,6 +102,35 @@ section {
 #cart-popup button:hover {
   background-color: #0dfc05;
   color: black;
+}
+
+.button-payment {
+  background-color: #007bff; /* Blue */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button-payment:hover {
+  background-color: #0056b3;
+}
+#order-tracking {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#order-status-message {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #007bff;
 }
 
 /* Footer */

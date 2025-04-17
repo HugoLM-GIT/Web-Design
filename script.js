@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartPopup = document.getElementById("cart-popup");
   const cartItemsList = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
+  const confirmPaymentButton = document.getElementById("confirm-payment-button"); // New Confirm Payment Button
+  const cartStatus = document.getElementById("cart-status"); // Status Message
 
   // Show Cart Pop-up
   document.getElementById("cart-icon").addEventListener("click", () => {
@@ -31,6 +33,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Confirm Payment Button Functionality
+  confirmPaymentButton.addEventListener("click", () => {
+    confirmPaymentButton.textContent = "Processing...";
+    confirmPaymentButton.disabled = true;
+
+    setTimeout(() => {
+      cartStatus.textContent = "Payment successful! Your order is being prepared.";
+      confirmPaymentButton.classList.add("hidden"); // Hide button after confirmation
+    }, 2000);
+  });
+  function updateOrderStatus() {
+    const orderStatusMessage = document.getElementById("order-status-message");
+    const orderTracking = document.getElementById("order-tracking");
+  
+    // Show tracking section
+    orderTracking.classList.remove("hidden");
+  
+    // Define status steps
+    const statuses = [
+      "Order Confirmed ✅",
+      "Preparing your meal... 🍽️",
+      "Cooking in progress... 🔥",
+      "Almost ready! 🍲",
+      "Ready for pickup/delivery! 🚀"
+    ];
+  
+    let currentStep = 0;
+  
+    // Update status every 3 seconds
+    const statusInterval = setInterval(() => {
+      if (currentStep < statuses.length) {
+        orderStatusMessage.textContent = statuses[currentStep];
+        currentStep++;
+      } else {
+        clearInterval(statusInterval); // Stop updating when final status is reached
+      }
+    }, 3000);
+  }
+  
+  // Call updateOrderStatus after payment is confirmed
+  setTimeout(() => {
+    updateOrderStatus(); // Start tracking after payment success
+  }, 2000);
+  
   // Update Cart Display
   function updateCartDisplay() {
     cartItemsList.innerHTML = "";
@@ -54,20 +100,25 @@ document.addEventListener("DOMContentLoaded", () => {
   function attachQuantityHandlers() {
     document.querySelectorAll(".increase").forEach((button) => {
       button.addEventListener("click", () => {
-        cart[button.getAttribute("data-name")].quantity++;
-        updateCartDisplay();
+        const itemName = button.getAttribute("data-name");
+        if (cart[itemName]) {
+          cart[itemName].quantity++;
+          updateCartDisplay();
+        }
       });
     });
 
     document.querySelectorAll(".decrease").forEach((button) => {
       button.addEventListener("click", () => {
         const itemName = button.getAttribute("data-name");
-        if (cart[itemName].quantity > 1) {
-          cart[itemName].quantity--;
-        } else {
-          delete cart[itemName];
+        if (cart[itemName]) {
+          if (cart[itemName].quantity > 1) {
+            cart[itemName].quantity--;
+          } else {
+            delete cart[itemName];
+          }
+          updateCartDisplay();
         }
-        updateCartDisplay();
       });
     });
   }

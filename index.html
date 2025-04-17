@@ -89,8 +89,18 @@
     <h2>Your Cart</h2>
     <ul id="cart-items"></ul>
     <p id="cart-total">Total: 0 MZN</p>
-    <button id="close-cart">Close</button>
-  </div>
+  
+    <div class="cart-actions">
+      <button id="confirm-payment-button" class="button-payment">Confirm Payment</button> <!-- New Button -->
+      <button id="close-cart" class="button-secondary">Close</button>
+    </div>
+    <div id="order-tracking" class="hidden">
+      <h3>Order Status:</h3>
+      <p id="order-status-message">Awaiting confirmation...</p>
+    </div>
+    
+    <p id="cart-status" class="cart-status-message"></p> <!-- Status message -->
+  </div>  
 
   <!-- Footer with QR Code -->
   <footer>
