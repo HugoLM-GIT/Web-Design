@@ -122,4 +122,28 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+  /* Waiter Dashboard Logic */
+document.addEventListener("DOMContentLoaded", function () {
+  const orderList = document.getElementById("orders");
+  const markServedButton = document.getElementById("mark-served");
+
+  function updateOrders() {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    orderList.innerHTML = "";
+    cartItems.forEach((item, index) => {
+      const orderItem = document.createElement("li");
+      orderItem.textContent = `${item.name} - ${item.price}MZN`;
+      orderItem.dataset.index = index;
+      orderList.appendChild(orderItem);
+    });
+  }
+
+  markServedButton.addEventListener("click", function () {
+    localStorage.removeItem("cart");
+    orderList.innerHTML = "<p>All orders served!</p>";
+  });
+
+  updateOrders();
+});
+
 });

@@ -148,3 +148,31 @@ footer {
   width: 150px;
   height: 150px;
 }
+/* Waiter Dashboard */
+#waiter-dashboard {
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+#orders {
+  list-style: none;
+  padding: 0;
+}
+
+#orders li {
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+#mark-served {
+  background: green;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+}
