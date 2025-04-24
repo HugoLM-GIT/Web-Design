@@ -1,10 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const cart = {}; // Stores items as { name: { quantity, price } }
+  const cart = JSON.parse(localStorage.getItem("cart")) || {}; // Load cart from localStorage
+  let cartCount = parseInt(localStorage.getItem("cartCount")) || 0; // Load cart count
+
   const cartPopup = document.getElementById("cart-popup");
   const cartItemsList = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
-  const confirmPaymentButton = document.getElementById("confirm-payment-button"); // New Confirm Payment Button
-  const cartStatus = document.getElementById("cart-status"); // Status Message
+  const confirmPaymentButton = document.getElementById("confirm-payment-button");
+  const cartStatus = document.getElementById("cart-status");
+  const cartCountDisplay = document.getElementById("cart-count"); // Cart count display
+
+  cartCountDisplay.textContent = cartCount; // Initialize cart count
 
   // Show Cart Pop-up
   document.getElementById("cart-icon").addEventListener("click", () => {
@@ -29,6 +34,12 @@ document.addEventListener("DOMContentLoaded", () => {
         cart[itemName].quantity += 1;
       }
 
+      cartCount++; // Increase cart count
+      cartCountDisplay.textContent = cartCount; // Update cart icon
+
+      localStorage.setItem("cart", JSON.stringify(cart)); // Persist cart items
+      localStorage.setItem("cartCount", cartCount); // Persist cart count
+
       updateCartDisplay();
     });
   });
@@ -40,17 +51,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       cartStatus.textContent = "Payment successful! Your order is being prepared.";
-      confirmPaymentButton.classList.add("hidden"); // Hide button after confirmation
+      confirmPaymentButton.classList.add("hidden");
+
+      localStorage.removeItem("cart"); // Clear cart
+      localStorage.removeItem("cartCount"); // Clear cart count
+      cartCount = 0;
+      cartCountDisplay.textContent = cartCount;
+
+      updateCartDisplay();
     }, 2000);
   });
+
   function updateOrderStatus() {
     const orderStatusMessage = document.getElementById("order-status-message");
     const orderTracking = document.getElementById("order-tracking");
-  
-    // Show tracking section
+
     orderTracking.classList.remove("hidden");
-  
-    // Define status steps
+
     const statuses = [
       "Order Confirmed ✅",
       "Preparing your meal... 🍽️",
@@ -58,26 +75,23 @@ document.addEventListener("DOMContentLoaded", () => {
       "Almost ready! 🍲",
       "Ready for pickup/delivery! 🚀"
     ];
-  
+
     let currentStep = 0;
-  
-    // Update status every 3 seconds
+
     const statusInterval = setInterval(() => {
       if (currentStep < statuses.length) {
         orderStatusMessage.textContent = statuses[currentStep];
         currentStep++;
       } else {
-        clearInterval(statusInterval); // Stop updating when final status is reached
+        clearInterval(statusInterval);
       }
     }, 3000);
   }
-  
-  // Call updateOrderStatus after payment is confirmed
+
   setTimeout(() => {
-    updateOrderStatus(); // Start tracking after payment success
+    updateOrderStatus();
   }, 2000);
-  
-  // Update Cart Display
+
   function updateCartDisplay() {
     cartItemsList.innerHTML = "";
     let total = 0;
@@ -96,7 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
     attachQuantityHandlers();
   }
 
-  // Attach quantity controls (+ and - buttons)
   function attachQuantityHandlers() {
     document.querySelectorAll(".increase").forEach((button) => {
       button.addEventListener("click", () => {
@@ -122,28 +135,27 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-  /* Waiter Dashboard Logic */
-document.addEventListener("DOMContentLoaded", function () {
-  const orderList = document.getElementById("orders");
-  const markServedButton = document.getElementById("mark-served");
 
-  function updateOrders() {
-    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
-    orderList.innerHTML = "";
-    cartItems.forEach((item, index) => {
-      const orderItem = document.createElement("li");
-      orderItem.textContent = `${item.name} - ${item.price}MZN`;
-      orderItem.dataset.index = index;
-      orderList.appendChild(orderItem);
+  document.addEventListener("DOMContentLoaded", function () {
+    const orderList = document.getElementById("orders");
+    const markServedButton = document.getElementById("mark-served");
+
+    function updateOrders() {
+      const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+      orderList.innerHTML = "";
+      cartItems.forEach((item, index) => {
+        const orderItem = document.createElement("li");
+        orderItem.textContent = `${item.name} - ${item.price}MZN`;
+        orderItem.dataset.index = index;
+        orderList.appendChild(orderItem);
+      });
+    }
+
+    markServedButton.addEventListener("click", function () {
+      localStorage.removeItem("cart");
+      orderList.innerHTML = "<p>All orders served!</p>";
     });
-  }
 
-  markServedButton.addEventListener("click", function () {
-    localStorage.removeItem("cart");
-    orderList.innerHTML = "<p>All orders served!</p>";
+    updateOrders();
   });
-
-  updateOrders();
-});
-
 });

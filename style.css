@@ -30,44 +30,70 @@ header nav ul li a {
   font-weight: bold;
 }
 
-/* Cart Icon */
+/* Floating Cart Icon */
 #cart-icon {
-  font-size: 24px;
-  cursor: pointer;
-  background: none;
-  border: none;
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  background: #db0f00;
   color: white;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
 /* Main Content */
 main {
-  padding: 2rem;
+  padding: 1rem;
 }
 
+/* Section Layout */
 section {
   margin-bottom: 2rem;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
 }
 
-/* Flexbox for aligning image and text */
+/* Background colors for menu sections */
+#appetizers { background-color: #f8e1e1; } /* Light red */
+#mains { background-color: #e1f8e1; } /* Light green */
+#desserts { background-color: #f8e1f3; } /* Light pink */
+#drinks { background-color: #e1eaf8; } /* Light blue */
+
+/* Grid Layout for Menu Items */
+.dish-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+/* Dish Item Styling */
 .dish {
   display: flex; /* Side-by-side layout */
+  flex-direction: column; /* Stack items on mobile */
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
 }
 
-/* Image styling */
+/* Image Styling */
 .dish img {
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
   height: auto;
   border-radius: 5px;
 }
 
-/* Text styling */
+/* Text Styling */
 .dish p {
   margin: 0;
   font-size: 1rem;
   color: #333;
+  text-align: center;
 }
 
 /* Cart Pop-up */
@@ -103,9 +129,21 @@ section {
   background-color: #0dfc05;
   color: black;
 }
+#cart-count {
+  background: red;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
 
+/* Payment Button */
 .button-payment {
-  background-color: #007bff; /* Blue */
+  background-color: #007bff;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -118,6 +156,8 @@ section {
 .button-payment:hover {
   background-color: #0056b3;
 }
+
+/* Order Tracking */
 #order-tracking {
   background-color: #f8f8f8;
   padding: 15px;
@@ -148,6 +188,7 @@ footer {
   width: 150px;
   height: 150px;
 }
+
 /* Waiter Dashboard */
 #waiter-dashboard {
   background: #f4f4f4;

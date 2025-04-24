@@ -18,7 +18,7 @@
       </ul>
     </nav>
     <input type="text" id="search-bar" placeholder="Search for a dish...">
-    <button id="cart-icon">🛒</button> <!-- Cart button -->
+    <button id="cart-icon">🛒 <span id="cart-count">0</span></button> <!-- Floating Cart button with item count -->
   </header>
 
   <main>
@@ -30,65 +30,77 @@
       </div>
       <button id="mark-served">Mark Order as Served</button>
     </section>
-    
+
+    <!-- Appetizers Section -->
     <section id="appetizers">
       <h2>Appetizers</h2>
-      <div class="dish">
-        <img src="images/Badjias.jpeg" alt="Badjias">
-        <p>Badjias - 4.99MZN</p>
-        <button class="add-to-cart" data-price="4.99" data-name="Badjias">Add to Cart</button>
-      </div>
-      <div class="dish">
-        <img src="images/pao de alho.jpeg" alt="Pao de alho">
-        <p>Pao de alho - 9.99MZN</p>
-        <button class="add-to-cart" data-price="9.99" data-name="Pao de alho">Add to Cart</button>
+      <div class="dish-container">
+        <div class="dish">
+          <img src="images/Badjias.jpeg" alt="Badjias">
+          <p><strong>Badjias - 5MZN</strong></p>
+          <button class="add-to-cart" data-price="5" data-name="Badjias">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="images/pao de alho.jpeg" alt="Pao de alho">
+          <p><strong>Pao de alho - 35MZN</strong></p>
+          <button class="add-to-cart" data-price="35" data-name="Pao de alho">Add to Cart</button>
+        </div>
       </div>
     </section>
 
+    <!-- Main Courses Section -->
     <section id="mains">
       <h2>Main Courses</h2>
-      <div class="dish">
-        <img src="images/Frango.jpeg" alt="Frango"> 
-        <p>Frango Grelhado - 249.99MZN</p>
-        <button class="add-to-cart" data-price="249.99" data-name="Frango">Add to Cart</button>
-      </div>
-      <div class="dish">
-        <img src="images/Batata Frita.jpeg" alt="Batata Frita">
-        <p>Batata Frita - 100MZN</p>
-        <button class="add-to-cart" data-price="100" data-name="Batata">Add to Cart</button>
-      </div>
-      <div class="dish">
-        <img src="images/carne-borrego.jpg" alt="carne-borrego">
-        <p>Carne Borrego - 599.99MZN</p>
-        <button class="add-to-cart" data-price="599.99" data-name="Carne Borrego">Add to Cart</button>
+      <div class="dish-container">
+        <div class="dish">
+          <img src="images/Frango.jpeg" alt="Frango"> 
+          <p><strong>Frango Grelhado - 250MZN</strong></p>
+          <button class="add-to-cart" data-price="250" data-name="Frango">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="images/Batata Frita.jpeg" alt="Batata Frita">
+          <p><strong>Batata Frita - 100MZN</strong></p>
+          <button class="add-to-cart" data-price="100" data-name="Batata">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="images/carne-borrego.jpg" alt="Carne Borrego">
+          <p><strong>Carne Borrego - 600MZN</strong></p>
+          <button class="add-to-cart" data-price="600" data-name="Carne Borrego">Add to Cart</button>
+        </div>
       </div>
     </section>
 
+    <!-- Desserts Section -->
     <section id="desserts">
       <h2>Desserts</h2>
-      <div class="dish">
-        <img src="images/Bolo d Choc.jpeg" alt="Bolo de Chocolate">
-        <p>Bolo de Chocolate - 49.99MZN</p>
-        <button class="add-to-cart" data-price="49.99" data-name="Bolo de Chocolate">Add to Cart</button>
-      </div>
-      <div class="dish">
-        <img src="images/Palmier.jpeg" alt="Palmier">
-        <p>Palmier - 79.99MZN</p>
-        <button class="add-to-cart" data-price="79.99" data-name="Palmier">Add to Cart</button>
+      <div class="dish-container">
+        <div class="dish">
+          <img src="images/Bolo d Choc.jpeg" alt="Bolo de Chocolate">
+          <p><strong>Bolo de Chocolate - 150MZN</strong></p>
+          <button class="add-to-cart" data-price="150" data-name="Bolo de Chocolate">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="images/Palmier.jpeg" alt="Palmier">
+          <p><strong>Palmier - 80MZN</strong></p>
+          <button class="add-to-cart" data-price="80" data-name="Palmier">Add to Cart</button>
+        </div>
       </div>
     </section>
 
+    <!-- Drinks Section -->
     <section id="drinks">
       <h2>Drinks</h2>
-      <div class="dish">
-        <img src="images/2M.jpeg" alt="2M">
-        <p>2M - 59.99MZN</p>
-        <button class="add-to-cart" data-price="59.99" data-name="2M">Add to Cart</button>
-      </div>
-      <div class="dish">
-        <img src="images/coke.jpeg" alt="Coca Cola">
-        <p>Coca Cola - 69.99MZN</p>
-        <button class="add-to-cart" data-price="69.99" data-name="Coca Cola">Add to Cart</button>
+      <div class="dish-container">
+        <div class="dish">
+          <img src="images/2M.jpeg" alt="2M">
+          <p><strong>2M - 59.99MZN</strong></p>
+          <button class="add-to-cart" data-price="59.99" data-name="2M">Add to Cart</button>
+        </div>
+        <div class="dish">
+          <img src="images/coke.jpeg" alt="Coca Cola">
+          <p><strong>Coca Cola - 70MZN</strong></p>
+          <button class="add-to-cart" data-price="70" data-name="Coca Cola">Add to Cart</button>
+        </div>
       </div>
     </section>
   </main>
@@ -98,24 +110,20 @@
     <h2>Your Cart</h2>
     <ul id="cart-items"></ul>
     <p id="cart-total">Total: 0 MZN</p>
-  
     <div class="cart-actions">
-      <button id="confirm-payment-button" class="button-payment">Confirm Payment</button> <!-- New Button -->
+      <button id="confirm-payment-button" class="button-payment">Confirm Payment</button>
       <button id="close-cart" class="button-secondary">Close</button>
     </div>
     <div id="order-tracking" class="hidden">
       <h3>Order Status:</h3>
       <p id="order-status-message">Awaiting confirmation...</p>
     </div>
-    
-    <p id="cart-status" class="cart-status-message"></p> <!-- Status message -->
-  </div>  
+    <p id="cart-status" class="cart-status-message"></p>
+  </div>
 
-  <!-- Footer with QR Code -->
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Hugo's Digital Restaurant Menu, we welcome you to visit us any time!</p>
-    <p>Scan the QR code to view our menu:</p>
-    <img id="qr-code" src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://yourmenu.com" alt="Scan to view menu">
   </footer>
 
   <script src="script.js"></script>
