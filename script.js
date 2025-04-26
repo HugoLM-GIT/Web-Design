@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const paymentPopup = document.getElementById("payment-popup");
   const paymentOptions = document.querySelectorAll(".payment-option");
   const closePaymentPopup = document.getElementById("close-payment-popup");
+  const searchBar = document.getElementById("search-bar");
+  const searchButton = document.getElementById("search-button");
 
   cartCountDisplay.textContent = cartCount;
 
@@ -196,5 +198,31 @@ document.addEventListener("DOMContentLoaded", () => {
   function saveCartState() {
       localStorage.setItem("cart", JSON.stringify(cart));
       localStorage.setItem("cartCount", cartCount);
+  }
+
+  // Search Functionality using Magnifying Glass Button
+  searchButton.addEventListener("click", () => {
+      performSearch();
+  });
+
+  function performSearch() {
+      const searchQuery = searchBar.value.toLowerCase();
+      const dishes = document.querySelectorAll(".dish");
+
+      let found = false;
+
+      dishes.forEach((dish) => {
+          const dishName = dish.querySelector("p").textContent.toLowerCase();
+          if (dishName.includes(searchQuery)) {
+              dish.style.display = "block"; 
+              found = true;
+          } else {
+              dish.style.display = "none"; 
+          }
+      });
+
+      if (!found) {
+          alert("No items found for your search.");
+      }
   }
 });

@@ -17,8 +17,14 @@
         <li><a href="#drinks">Drinks</a></li>
       </ul>
     </nav>
-    <input type="text" id="search-bar" placeholder="Search for a dish...">
-    <button id="cart-icon">🛒 <span id="cart-count">0</span></button> <!-- Floating Cart button with item count -->
+    
+    <!-- Search Bar with Magnifying Glass Icon -->
+    <div class="search-container">
+      <input type="text" id="search-bar" placeholder="Search for a dish...">
+      <button id="search-button">🔍</button>
+    </div>
+
+    <button id="cart-icon">🛒 <span id="cart-count">0</span></button>
   </header>
 
   <main>
@@ -60,7 +66,7 @@
         <div class="dish">
           <img src="images/Batata Frita.jpeg" alt="Batata Frita">
           <p><strong>Batata Frita - 100MZN</strong></p>
-          <button class="add-to-cart" data-price="100" data-name="Batata">Add to Cart</button>
+          <button class="add-to-cart" data-price="100" data-name="Batata Frita">Add to Cart</button>
         </div>
         <div class="dish">
           <img src="images/carne-borrego.jpg" alt="Carne Borrego">
@@ -134,7 +140,7 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Hugo's Digital Restaurant Menu, we welcome you to visit us any time!</p>
+    <p>&copy; 2025 Hugo's Digital Restaurant Menu, we welcome you to visit us anytime!</p>
   </footer>
 
   <script src="script.js"></script>

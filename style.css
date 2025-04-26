@@ -16,6 +16,7 @@ header {
   align-items: center;
 }
 
+/* Navigation */
 header nav ul {
   list-style: none;
   padding: 0;
@@ -28,6 +29,37 @@ header nav ul li a {
   text-decoration: none;
   color: white;
   font-weight: bold;
+}
+
+/* Search Bar Styling */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+#search-bar {
+  border: none;
+  outline: none;
+  padding: 8px;
+  flex-grow: 1;
+  font-size: 1rem;
+}
+
+#search-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#search-button:hover {
+  transform: scale(1.1);
 }
 
 /* Floating Cart Icon */
@@ -161,7 +193,7 @@ section {
   color: black !important;
 }
 
-/* Edit Order Button (Now Blue) */
+/* Edit Order Button (Blue) */
 #edit-order {
   background-color: #007bff !important; /* Blue */
   color: white !important;
@@ -247,42 +279,4 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
-}
-
-/* QR Code Styling */
-#qr-code {
-  display: block;
-  margin: 10px auto;
-  width: 150px;
-  height: 150px;
-}
-
-/* Waiter Dashboard */
-#waiter-dashboard {
-  background: #f4f4f4;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-#orders {
-  list-style: none;
-  padding: 0;
-}
-
-#orders li {
-  background: #fff;
-  padding: 10px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
-/* Mark Served Button */
-#mark-served {
-  background: green;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
 }
