@@ -14,6 +14,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 /* Navigation */
@@ -31,7 +32,7 @@ header nav ul li a {
   font-weight: bold;
 }
 
-/* Search Bar Styling */
+/* Search Bar Section Styling */
 .search-container {
   display: flex;
   align-items: center;
@@ -40,6 +41,9 @@ header nav ul li a {
   padding: 8px;
   border-radius: 8px;
   box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  flex-grow: 1;
+  max-width: 400px;
+  margin: 10px auto;
 }
 
 #search-bar {
@@ -236,41 +240,6 @@ section {
   font-size: 1rem;
   font-weight: bold;
   color: #0f0f0f;
-}
-
-/* Payment Pop-up */
-#payment-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-  display: none;
-  text-align: center;
-  z-index: 1000;
-}
-
-.payment-option {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#close-payment-popup {
-  background: red;
-  color: white;
-  padding: 10px;
-  border: none;
-  cursor: pointer;
 }
 
 /* Footer */
