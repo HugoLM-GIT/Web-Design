@@ -59,10 +59,10 @@ section {
 }
 
 /* Background colors for menu sections */
-#appetizers { background-color: #f8e1e1; } /* Light red */
-#mains { background-color: #e1f8e1; } /* Light green */
-#desserts { background-color: #f8e1f3; } /* Light pink */
-#drinks { background-color: #e1eaf8; } /* Light blue */
+#appetizers { background-color: #f8e1e1; }
+#mains { background-color: #e1f8e1; }
+#desserts { background-color: #f8e1f3; }
+#drinks { background-color: #e1eaf8; }
 
 /* Grid Layout for Menu Items */
 .dish-container {
@@ -71,10 +71,10 @@ section {
   gap: 10px;
 }
 
-/* Dish Item Styling */
+/* Dish Styling */
 .dish {
-  display: flex; /* Side-by-side layout */
-  flex-direction: column; /* Stack items on mobile */
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
@@ -86,6 +86,12 @@ section {
   max-width: 150px;
   height: auto;
   border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.dish img:hover {
+  transform: scale(1.05);
 }
 
 /* Text Styling */
@@ -110,25 +116,68 @@ section {
   text-align: center;
 }
 
+/* Smooth Pop-up Animation */
+.show-cart {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
 .hidden {
   display: none;
 }
 
-/* Cart buttons */
+/* Cart Buttons */
 #cart-popup button {
   padding: 0.5rem 1rem;
-  background-color: #db0f00;
+  background-color: #f31809;
   color: white;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
 #cart-popup button:hover {
   background-color: #0dfc05;
   color: black;
 }
+
+/* Confirm Payment Button */
+#confirm-payment-button {
+  background-color: black !important;
+  color: white !important;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#confirm-payment-button:hover {
+  background-color: #0dfc05 !important;
+  color: black !important;
+}
+
+/* Edit Order Button (Now Blue) */
+#edit-order {
+  background-color: #007bff !important; /* Blue */
+  color: white !important;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#edit-order:hover {
+  background-color: #0056b3 !important; /* Darker blue on hover */
+}
+
+/* Cart Counter */
 #cart-count {
   background: red;
   color: white;
@@ -139,22 +188,6 @@ section {
   position: absolute;
   top: 5px;
   right: 5px;
-}
-
-/* Payment Button */
-.button-payment {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.button-payment:hover {
-  background-color: #0056b3;
 }
 
 /* Order Tracking */
@@ -170,7 +203,42 @@ section {
 #order-status-message {
   font-size: 1rem;
   font-weight: bold;
-  color: #007bff;
+  color: #0f0f0f;
+}
+
+/* Payment Pop-up */
+#payment-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+  display: none;
+  text-align: center;
+  z-index: 1000;
+}
+
+.payment-option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#close-payment-popup {
+  background: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
 }
 
 /* Footer */
@@ -209,6 +277,7 @@ footer {
   border-radius: 5px;
 }
 
+/* Mark Served Button */
 #mark-served {
   background: green;
   color: white;

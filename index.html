@@ -93,8 +93,8 @@
       <div class="dish-container">
         <div class="dish">
           <img src="images/2M.jpeg" alt="2M">
-          <p><strong>2M - 59.99MZN</strong></p>
-          <button class="add-to-cart" data-price="59.99" data-name="2M">Add to Cart</button>
+          <p><strong>2M - 65MZN</strong></p>
+          <button class="add-to-cart" data-price="65" data-name="2M">Add to Cart</button>
         </div>
         <div class="dish">
           <img src="images/coke.jpeg" alt="Coca Cola">
@@ -112,13 +112,24 @@
     <p id="cart-total">Total: 0 MZN</p>
     <div class="cart-actions">
       <button id="confirm-payment-button" class="button-payment">Confirm Payment</button>
+      <button id="edit-order" class="button-secondary">✏️ Edit Order</button>
       <button id="close-cart" class="button-secondary">Close</button>
+      <button id="clear-cart" class="button-secondary">🗑️ Clear Cart</button>
     </div>
     <div id="order-tracking" class="hidden">
       <h3>Order Status:</h3>
       <p id="order-status-message">Awaiting confirmation...</p>
     </div>
     <p id="cart-status" class="cart-status-message"></p>
+  </div>
+
+  <!-- Payment Method Pop-up -->
+  <div id="payment-popup" class="hidden">
+    <h2>Choose Payment Method</h2>
+    <button class="payment-option" data-method="Mpesa">Mpesa</button>
+    <button class="payment-option" data-method="Emola">Emola</button>
+    <button class="payment-option" data-method="Internet Banking">Internet Banking</button>
+    <button id="close-payment-popup">Cancel</button>
   </div>
 
   <!-- Footer -->
