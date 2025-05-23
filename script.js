@@ -39,13 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 300);
   });
 
-  confirmPaymentButton.addEventListener("click", () => {
-      paymentPopup.style.display = "block";
-  });
+confirmPaymentButton.addEventListener("click", () => {
+    paymentPopup.classList.add("show-popup");
+});
 
-  closePaymentPopup.addEventListener("click", () => {
-      paymentPopup.style.display = "none";
-  });
+closePaymentPopup.addEventListener("click", () => {
+    paymentPopup.classList.remove("show-popup");
+});
 
   paymentOptions.forEach((button) => {
       button.addEventListener("click", () => {

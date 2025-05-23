@@ -139,17 +139,27 @@ section {
 }
 
 /* Cart Pop-up */
-#cart-popup {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-  display: none;
-  text-align: center;
+#cart-popup, #payment-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    width: 80%;
+    max-width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.3);
+    display: none;
+    text-align: center;
+}
+
+/* Ensure popups are properly shown */
+.show-popup {
+    display: block !important;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 }
 
 /* Smooth Pop-up Animation */
